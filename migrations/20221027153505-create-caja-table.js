@@ -4,7 +4,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
 
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('caja', {
       numReferencia: {
         type: Sequelize.STRING(5),
         primaryKey: true,
@@ -16,14 +16,14 @@ module.exports = {
       almacen: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Almacen',
+          model: 'almacen',
           key: 'codigo'
         },
         onDelete: 'no action',
         onUpdate: 'no action'
       },
-      onCreate: DataTypes.DATE,
-      onUpdate: DataTypes.DATE
+      onCreate: Sequelize.DATE,
+      onUpdate: Sequelize.DATE
     });
   },
 
